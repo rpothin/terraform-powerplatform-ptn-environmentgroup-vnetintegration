@@ -39,8 +39,13 @@ jobs:
         with:
           terraform_wrapper: false
 
-      - name: Terraform Validate
-        run: make validate
+      # Standalone `terraform validate` fails for modules that declare
+      # `configuration_aliases`, because aliased provider configurations must be
+      # supplied by a root caller. Run the unit test suite instead, which plans
+      # the module with mock providers and still catches real configuration
+      # errors in CI.
+      - name: Terraform Validate via Unit Tests
+        run: terraform test -test-directory=tests/unit
 
   docs:
     name: Documentation Freshness
