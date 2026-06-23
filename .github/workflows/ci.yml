@@ -45,7 +45,7 @@ jobs:
       # the module with mock providers and still catches real configuration
       # errors in CI.
       - name: Terraform Validate via Unit Tests
-        run: terraform test -test-directory=tests/unit
+        run: make test-unit
 
   docs:
     name: Documentation Freshness
