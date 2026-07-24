@@ -3,6 +3,10 @@
 fmt:
 	terraform fmt -recursive
 
+# Note: standalone `terraform validate` is not supported for modules that declare
+# `configuration_aliases` in required_providers — aliased providers must be supplied
+# by a root caller. Configuration correctness is validated via `make test-unit`,
+# which runs the full module with mock providers.
 validate: init
 	terraform validate
 
@@ -27,4 +31,4 @@ lint:
 security-scan:
 	trivy config --config .trivy.yaml .
 
-check-all: fmt validate docs lint security-scan test-unit
+check-all: fmt docs lint security-scan test-unit
