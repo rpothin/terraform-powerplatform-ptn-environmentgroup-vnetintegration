@@ -69,6 +69,10 @@ run "creates_non_production_vnet_integration" {
         location      = "eastus"
         address_space = "10.0.0.0/16"
       }
+      failover_vnet_config = {
+        location      = "westus2"
+        address_space = "10.1.0.0/16"
+      }
       nsg_additional_rules = [
         {
           name                       = "AllowPowerPlatformInfrastructureOutbound"
