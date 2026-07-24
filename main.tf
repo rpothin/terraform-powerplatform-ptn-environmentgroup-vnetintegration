@@ -74,7 +74,7 @@ resource "terraform_data" "preconditions" {
 
 module "production" {
   source  = "rpothin/ptn-enterprisepolicy-networkinjection/powerplatform"
-  version = "= 0.1.0"
+  version = "= 0.1.1"
   count   = length(local.production_environments) > 0 ? 1 : 0
 
   create_network_infrastructure = try(var.production_tier.create_network_infrastructure, true)
@@ -107,7 +107,7 @@ module "production" {
 
 module "non_production" {
   source  = "rpothin/ptn-enterprisepolicy-networkinjection/powerplatform"
-  version = "= 0.1.0"
+  version = "= 0.1.1"
   count   = length(local.non_production_environments) > 0 ? 1 : 0
 
   create_network_infrastructure = try(var.non_production_tier.create_network_infrastructure, true)

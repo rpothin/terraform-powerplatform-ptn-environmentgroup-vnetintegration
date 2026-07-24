@@ -345,13 +345,13 @@ The following Modules are called:
 
 Source: rpothin/ptn-enterprisepolicy-networkinjection/powerplatform
 
-Version: = 0.1.0
+Version: = 0.1.1
 
 ### <a name="module_production"></a> [production](#module\_production)
 
 Source: rpothin/ptn-enterprisepolicy-networkinjection/powerplatform
 
-Version: = 0.1.0
+Version: = 0.1.1
 
 <!-- TODO (before publishing to Terraform Registry): Replace the relative links below
      with absolute GitHub URLs, e.g.:
