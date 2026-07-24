@@ -1,12 +1,21 @@
 # Integration tests — uses real providers, requires OIDC credentials.
 #
-# Prerequisites:
+# Prerequisites (environment variables):
 #   ARM_USE_OIDC=true
-#   POWER_PLATFORM_TENANT_ID=<tenant-id>
-#   POWER_PLATFORM_CLIENT_ID=<client-id>
 #   ARM_TENANT_ID=<azure-tenant-id>
 #   ARM_CLIENT_ID=<azure-client-id>
-#   TF_VAR_subscription_id=<azure-subscription-id>
+#   ARM_SUBSCRIPTION_ID=<azure-subscription-id>
+#   POWER_PLATFORM_USE_OIDC=true
+#   POWER_PLATFORM_TENANT_ID=<tenant-id>
+#   POWER_PLATFORM_CLIENT_ID=<client-id>
+#
+# The `provider` blocks below intentionally omit explicit credentials — the
+# azurerm/azapi/powerplatform providers auto-detect GitHub Actions OIDC from
+# the ARM_*/POWER_PLATFORM_* environment variables above. This single Azure
+# subscription is used for both the "production" and "non_production" aliases
+# because this test only exercises the non-production tier (production module
+# call has count = 0), but all four aliases must still be declared to satisfy
+# the module's configuration_aliases contract.
 #
 # These tests create real Azure and Power Platform resources.
 # Resources are automatically destroyed after test completion.
@@ -14,10 +23,31 @@
 # IMPORTANT: Environments must be Managed Environments before running.
 # ptn-environmentgroup v0.1.x sets managed_environment_enabled=false due to a
 # provider bug. Enable Managed Environments manually before these tests.
+#
+# IMPORTANT: Replace the placeholder environment id below with a real,
+# existing Managed Environment id before running against a live subscription.
 
-variables {
-  subscription_id = "00000000-0000-0000-0000-000000000000" # Override via TF_VAR_subscription_id
+provider "azapi" {
+  alias = "non_production"
 }
+
+provider "azapi" {
+  alias = "production"
+}
+
+provider "azurerm" {
+  alias = "non_production"
+
+  features {}
+}
+
+provider "azurerm" {
+  alias = "production"
+
+  features {}
+}
+
+provider "powerplatform" {}
 
 run "creates_non_production_vnet_integration" {
   command = apply

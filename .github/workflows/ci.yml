@@ -131,6 +131,17 @@ jobs:
       - name: Run Integration Tests
         run: make test-integration
         env:
+          # Power Platform provider (OIDC)
           POWER_PLATFORM_USE_OIDC: "true"
           POWER_PLATFORM_TENANT_ID: ${{ secrets.POWER_PLATFORM_TENANT_ID }}
           POWER_PLATFORM_CLIENT_ID: ${{ secrets.POWER_PLATFORM_CLIENT_ID }}
+          # azurerm/azapi providers (OIDC) — required because this module
+          # provisions Azure VNet infrastructure. ARM_CLIENT_ID, ARM_TENANT_ID,
+          # and ARM_SUBSCRIPTION_ID must be added as repository secrets for an
+          # Azure app registration with a federated credential trusting this
+          # repository's GitHub Actions OIDC issuer before this job can
+          # authenticate successfully.
+          ARM_USE_OIDC: "true"
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
