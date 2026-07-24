@@ -21,13 +21,13 @@ module "this" {
     # See https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview
     nsg_additional_rules = [
       {
-        name                       = "AllowPowerPlatformInfrastructureOutbound"
+        name                       = "AllowPowerPlatformInfraOutbound"
         priority                   = 100
         direction                  = "Outbound"
         access                     = "Allow"
         protocol                   = "Tcp"
         destination_port_range     = "443"
-        destination_address_prefix = "PowerPlatformInfrastructure"
+        destination_address_prefix = "PowerPlatformInfra"
         description                = "Required: Allow Power Platform infrastructure outbound (VNet injection prerequisite)"
       },
       {
