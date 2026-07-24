@@ -24,8 +24,9 @@
 # ptn-environmentgroup v0.1.x sets managed_environment_enabled=false due to a
 # provider bug. Enable Managed Environments manually before these tests.
 #
-# IMPORTANT: Replace the placeholder environment id below with a real,
-# existing Managed Environment id before running against a live subscription.
+# This module operates on pre-existing Power Platform environments (typically
+# the output of ptn-environmentgroup) rather than creating them, so the
+# environment id below must reference a real, existing Managed Environment.
 
 provider "azapi" {
   alias = "non_production"
@@ -57,7 +58,7 @@ run "creates_non_production_vnet_integration" {
     environment_group_name     = "tftest-vnet-integration"
     environments = {
       dev = {
-        id           = "00000000-0000-0000-0000-000000000001" # Replace with real environment ID
+        id           = "36f603f9-0af2-e33d-98a5-64b02c1bac19"
         display_name = "tftest-dev"
         type         = "Sandbox"
         location     = "unitedstates"
