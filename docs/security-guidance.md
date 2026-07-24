@@ -87,6 +87,32 @@ jobs:
 3. Grant the app registration Power Platform admin roles
 4. Store `POWER_PLATFORM_TENANT_ID` and `POWER_PLATFORM_CLIENT_ID` as repository secrets
 
+### Immutable OIDC Subject Claims
+
+GitHub Actions supports two federated credential subject formats:
+
+- **Legacy:** `repo:<org>/<repo>:<ref>` (e.g. `repo:rpothin/my-module:pull_request`)
+- **Immutable-ID:** `repo:<org>@<orgID>/<repo>@<repoID>:<ref>` — new repos created after July 2026 default to this format; existing repos must opt in
+
+If the Azure federated credential's subject uses the `@<orgID>/@<repoID>` format but the repo hasn't opted in, OIDC exchange fails with:
+
+```
+AADSTS700213: No matching federated identity record found for presented assertion subject 'repo:<org>/<repo>:pull_request'
+```
+
+Opt the repo into immutable subject claims:
+
+```bash
+# Check current setting
+gh api repos/{owner}/{repo}/actions/oidc/customization/sub
+
+# Opt in (use -F, not -f, so booleans serialize correctly — not as strings)
+gh api --method PUT repos/{owner}/{repo}/actions/oidc/customization/sub \
+  -F use_default=true -F use_immutable_subject=true
+```
+
+Before wiring up the federated credential, GET the endpoint above and confirm `sub_claim_prefix` matches exactly what you configure as the Azure federated credential's subject — this avoids a trial-and-error CI failure loop.
+
 ## Environment Isolation
 
 ### Separate Environments for Testing
