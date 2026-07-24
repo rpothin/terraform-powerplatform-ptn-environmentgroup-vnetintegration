@@ -57,7 +57,7 @@ variable "private_dns_zone_names" {
 variable "production_failover_vnet_location" {
   description = "Azure region for the production failover VNet."
   type        = string
-  default     = "westus2"
+  default     = "centralus"
 }
 
 variable "production_primary_vnet_location" {

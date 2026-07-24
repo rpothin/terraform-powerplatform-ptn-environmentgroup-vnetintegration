@@ -1,7 +1,7 @@
 # ptn-environmentgroup-vnetintegration
 
 [![Terraform Registry](https://img.shields.io/badge/Terraform-Registry-blue.svg)](https://registry.terraform.io/modules/rpothin/ptn-environmentgroup-vnetintegration/powerplatform/latest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/rpothin/terraform-powerplatform-ptn-environmentgroup-vnetintegration/blob/main/LICENSE)
 
 This Terraform module extends [`ptn-environmentgroup`](https://registry.terraform.io/modules/rpothin/ptn-environmentgroup/powerplatform/latest) with Azure Virtual Network infrastructure for Power Platform network injection. It orchestrates [`ptn-enterprisepolicy-networkinjection`](https://registry.terraform.io/modules/rpothin/ptn-enterprisepolicy-networkinjection/powerplatform/latest) once per subscription tier (production and non-production), routing each tier to its own Azure subscription via provider aliases.
 

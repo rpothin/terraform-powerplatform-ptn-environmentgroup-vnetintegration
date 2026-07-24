@@ -3,7 +3,7 @@
 # ptn-environmentgroup-vnetintegration
 
 [![Terraform Registry](https://img.shields.io/badge/Terraform-Registry-blue.svg)](https://registry.terraform.io/modules/rpothin/ptn-environmentgroup-vnetintegration/powerplatform/latest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/rpothin/terraform-powerplatform-ptn-environmentgroup-vnetintegration/blob/main/LICENSE)
 
 This Terraform module extends [`ptn-environmentgroup`](https://registry.terraform.io/modules/rpothin/ptn-environmentgroup/powerplatform/latest) with Azure Virtual Network infrastructure for Power Platform network injection. It orchestrates [`ptn-enterprisepolicy-networkinjection`](https://registry.terraform.io/modules/rpothin/ptn-enterprisepolicy-networkinjection/powerplatform/latest) once per subscription tier (production and non-production), routing each tier to its own Azure subscription via provider aliases.
 
@@ -353,11 +353,6 @@ Source: rpothin/ptn-enterprisepolicy-networkinjection/powerplatform
 
 Version: = 0.1.1
 
-<!-- TODO (before publishing to Terraform Registry): Replace the relative links below
-     with absolute GitHub URLs, e.g.:
-       See [CONTRIBUTING.md](https://github.com/<OWNER>/<REPO>/blob/main/CONTRIBUTING.md)
-     Relative paths work on GitHub but 404 on the Terraform Registry. -->
-
 ## AVM Alignment Deviations
 
 This module is AVM-aligned but not AVM-certified. Known deviations:
@@ -375,17 +370,17 @@ updates automatically. Pin to a specific version in consuming configurations for
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+See [CONTRIBUTING.md](https://github.com/rpothin/terraform-powerplatform-ptn-environmentgroup-vnetintegration/blob/main/CONTRIBUTING.md) for contribution guidelines.
 
 ## Code of Conduct
 
-See [CODE\_OF\_CONDUCT.md](CODE\_OF\_CONDUCT.md).
+See [CODE\_OF\_CONDUCT.md](https://github.com/rpothin/terraform-powerplatform-ptn-environmentgroup-vnetintegration/blob/main/CODE_OF_CONDUCT.md).
 
 ## Support
 
-See [SUPPORT.md](SUPPORT.md) for support information.
+See [SUPPORT.md](https://github.com/rpothin/terraform-powerplatform-ptn-environmentgroup-vnetintegration/blob/main/SUPPORT.md) for support information.
 
 ## License
 
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License — see [LICENSE](https://github.com/rpothin/terraform-powerplatform-ptn-environmentgroup-vnetintegration/blob/main/LICENSE) for details.
 <!-- END_TF_DOCS -->
