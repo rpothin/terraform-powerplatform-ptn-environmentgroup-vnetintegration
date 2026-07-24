@@ -1,3 +1,5 @@
+# Registry source: derived from the repo name — strip the "terraform-powerplatform-" prefix.
+# e.g. terraform-powerplatform-res-environment → rpothin/res-environment/powerplatform
 locals {
   # Full NSG rule set for Power Platform VNet injection.
   # See https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview
