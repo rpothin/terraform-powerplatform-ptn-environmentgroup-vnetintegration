@@ -70,8 +70,12 @@ run "creates_non_production_vnet_integration" {
         location      = "eastus"
         address_space = "10.0.0.0/16"
       }
+      # NOTE: the failover region must be a location supported for VNet
+      # injection under the "unitedstates" enterprise policy location
+      # (valid options: westus, eastus, eastus2, centralus) — westus2 is
+      # not supported and will fail enterprise policy creation.
       failover_vnet_config = {
-        location      = "westus2"
+        location      = "westus"
         address_space = "10.1.0.0/16"
       }
       nsg_additional_rules = [
