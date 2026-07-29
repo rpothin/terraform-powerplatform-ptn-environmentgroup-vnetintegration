@@ -47,7 +47,7 @@ The following requirements are needed by this module:
 
 - <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) (~> 2.0)
 
-- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
+- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 5.0)
 
 - <a name="requirement_powerplatform"></a> [powerplatform](#requirement\_powerplatform) (~> 4.0)
 
@@ -345,13 +345,13 @@ The following Modules are called:
 
 Source: rpothin/ptn-enterprisepolicy-networkinjection/powerplatform
 
-Version: = 0.1.1
+Version: = 0.1.2
 
 ### <a name="module_production"></a> [production](#module\_production)
 
 Source: rpothin/ptn-enterprisepolicy-networkinjection/powerplatform
 
-Version: = 0.1.1
+Version: = 0.1.2
 
 ## AVM Alignment Deviations
 
